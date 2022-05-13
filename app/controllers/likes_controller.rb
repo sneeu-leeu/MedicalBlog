@@ -3,7 +3,7 @@ class LikesController < ApplicationController
     @post = Post.find(params[:post_id])
     new_like = current_user.likes.new(
       user_id: current_user.id,
-    post_id: @post.id
+      post_id: @post.id
     )
     new_like.update_likes_counter
     if new_like.save
