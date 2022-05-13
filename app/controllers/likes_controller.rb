@@ -7,9 +7,9 @@ class LikesController < ApplicationController
     )
     new_like.update_likes_counter
     if new_like.save
-      redirect_to "/users/#{@post.user_id}/posts/#{@post.id}", notice: 'Success!'
+      redirect_to "/users/#{@post.user_id}/posts/#{@post.id}", notice: 'Liked!'
     else
-      render :new, alert: 'Error occured!'
+      redirect_to "/users/#{@post.user_id}/posts/#{@post.id}", alert: 'An error occured!'
     end
   end
 end
