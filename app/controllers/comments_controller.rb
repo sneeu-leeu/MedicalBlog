@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     if @new_comment.save
       redirect_to "/users/#{@post.user_id}/posts/#{@post.id}", flash: { alert: 'Comment created' }
     else
-      flash.now[:error] = "An error occurred, please try again"
+      flash.now[:error] = 'An error occurred, please try again'
       render action 'new'
     end
   end
