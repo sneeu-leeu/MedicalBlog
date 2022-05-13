@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :likes, foreign_key: 'user_id'
 
   validates :name, presence: true
-  validates :posts_counter, numerically: { only_integer: true }, comparison: { greater_than_or_equal_to: 0 }
+  validates :posts_counter, numerically: { greater_than_or_equal_to: 0 }
 
   def recent_posts
     Post.last(3)
