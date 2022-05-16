@@ -67,9 +67,9 @@ Run tests `bundle exec rspec`
 
 👤 **Daniel Yerimah**
 
-- GitHub: @yerimah
-- Twitter: @iamdeewyne
-- LinkedIn: @daniel-yerimah
+- GitHub: [@yerimah](https://github.com/yerimah)
+- Twitter: [@iamdeewyne](https://twitter.com/iamdeewyne)
+- LinkedIn: [@daniel-yerimah](https://www.linkedin.com/in/daniel-yerimah/)
 
 
 ## 🤝 Contributing
