@@ -5,6 +5,8 @@ ruby '3.0.2'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+gem 'devise'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 
@@ -72,5 +74,5 @@ group :development do
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem "spring"
 end
