@@ -65,7 +65,11 @@ Run tests `bundle exec rspec`
 - Twitter: [@Stephan](https://twitter.com/Stephan07484055)
 - LinkedIn: [Stephan Annandale](https://www.linkedin.com/in/stephan-annandale-a4b4931a9/)
 
+👤 **Daniel Yerimah**
 
+- GitHub: @yerimah
+- Twitter: @iamdeewyne
+- LinkedIn: @daniel-yerimah
 
 
 ## 🤝 Contributing
