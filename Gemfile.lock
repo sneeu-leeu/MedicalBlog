@@ -80,6 +80,7 @@ GEM
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
+    cancancan (1.17.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -285,6 +286,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap (~> 4.2.1)
+  cancancan
   capybara
   debug
   devise
