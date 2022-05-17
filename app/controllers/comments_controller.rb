@@ -15,8 +15,8 @@ class CommentsController < ApplicationController
     if @new_comment.save
       redirect_to "/users/#{@post.user_id}/posts/#{@post.id}", flash: { alert: 'Comment created' }
     else
-      flash.now[:error] = 'An error occurred, please try again'
-      render action 'new'
+      flash.now[:error] = 'An error ocurred, could not save comment'
+      render action: 'new'
     end
   end
 
@@ -30,7 +30,6 @@ class CommentsController < ApplicationController
   end
 
   private
-
 
   def comment_params
     params.require(:comment).permit(:text)[:text]
