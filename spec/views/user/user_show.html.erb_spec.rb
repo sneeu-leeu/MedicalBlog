@@ -22,8 +22,8 @@ RSpec.describe "user/user_show", type: :view do
     end
 
     it "displays user profile photo" do
-      all('img').each do |image|
-        expect(image[:src]).to eq("/assets/image-placeholder-7f9e46188c7130997159e7d14fe9f4eb1294685586712e2425e01be9fc6cf425.png")
+      all('img').each do |img|
+        expect(img[:src]).to eq("/assets/image-placeholder-7f9e46188c7130997159e7d14fe9f4eb1294685586712e2425e01be9fc6cf425.png")
       end
     end
 
