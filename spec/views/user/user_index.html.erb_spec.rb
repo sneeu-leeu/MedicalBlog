@@ -1,12 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "user/index", type: :view do
+RSpec.describe 'user/index', type: :view do
   describe 'user index page' do
     before(:each) do
+      # rubocop:todo Naming/VariableNumber
       @user_1 = User.create(name: 'Max', photo: 'verstappen.png', bio: 'Max Bio', posts_counter: 0,
+                            # rubocop:enable Naming/VariableNumber
                             email: 'maxverstappen@f1.com', password: 'redbull', confirmed_at: Time.now)
 
+      # rubocop:todo Naming/VariableNumber
       @user_2 = User.create(name: 'Lewis', photo: 'hamilton.png', bio: 'Lewis Bio', posts_counter: 0,
+                            # rubocop:enable Naming/VariableNumber
                             email: 'lewishamilton@f1.com', password: 'mercedes')
 
       visit root_path
@@ -21,7 +25,9 @@ RSpec.describe "user/index", type: :view do
 
     it 'displays the user photo' do
       all('img').each do |img|
+        # rubocop:todo Layout/LineLength
         expect(img[:src]).to eq('/assets/image-placeholder-7f9e46188c7130997159e7d14fe9f4eb1294685586712e2425e01be9fc6cf425.png')
+        # rubocop:enable Layout/LineLength
       end
     end
 

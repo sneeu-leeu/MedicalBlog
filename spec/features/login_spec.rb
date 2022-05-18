@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Logins", type: :feature do
+RSpec.feature 'Logins', type: :feature do # rubocop:todo Metrics/BlockLength
   background { visit new_user_session_path }
   scenario 'displays email form field' do
     expect(page).to have_field('user[email]')
@@ -17,24 +17,24 @@ RSpec.feature "Logins", type: :feature do
   context 'sign in' do
     scenario 'Try sign in with blank form fields' do
       click_button 'Log in'
-      expect(page).to have_content "Invalid Email or password."
+      expect(page).to have_content 'Invalid Email or password.'
     end
 
     scenario 'Try sign in with incorrect data' do
       within 'form' do
-        fill_in "Email", with: 'MaxVerstappen@f1.com'
-        fill_in "Password", with: '123456'
+        fill_in 'Email', with: 'MaxVerstappen@f1.com'
+        fill_in 'Password', with: '123456'
       end
 
       click_button 'Log in'
-      expect(page).to have_content "Invalid Email or password."
+      expect(page).to have_content 'Invalid Email or password.'
     end
 
     scenario 'Try sign in with correct data' do
       @user = User.create(name: 'piet', surname: 'pompies', email: 'email@email.com', password: '123456')
       within 'form' do
-        fill_in "Email", with: 'email@email.com'
-        fill_in "Password", with: '123456'
+        fill_in 'Email', with: 'email@email.com'
+        fill_in 'Password', with: '123456'
       end
 
       click_button 'Log in'
