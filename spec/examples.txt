@@ -1,8 +1,12 @@
-example_id                           | status | run_time        |
------------------------------------- | ------ | --------------- |
-./spec/features/login_spec.rb[1:1]   | passed | 0.11402 seconds |
-./spec/features/login_spec.rb[1:2]   | passed | 36.02 seconds   |
-./spec/features/login_spec.rb[1:3]   | passed | 0.02784 seconds |
-./spec/features/login_spec.rb[1:4:1] | passed | 0.04653 seconds |
-./spec/features/login_spec.rb[1:4:2] | passed | 0.67359 seconds |
-./spec/features/login_spec.rb[1:4:3] | passed | 0.3735 seconds  |
+example_id                                           | status | run_time        |
+---------------------------------------------------- | ------ | --------------- |
+./spec/features/login_spec.rb[1:1]                   | passed | 16.24 seconds   |
+./spec/features/login_spec.rb[1:2]                   | passed | 0.03146 seconds |
+./spec/features/login_spec.rb[1:3]                   | passed | 0.03083 seconds |
+./spec/features/login_spec.rb[1:4:1]                 | passed | 1.1 seconds     |
+./spec/features/login_spec.rb[1:4:2]                 | passed | 0.02767 seconds |
+./spec/features/login_spec.rb[1:4:3]                 | passed | 2.64 seconds    |
+./spec/views/user/user_index.html.erb_spec.rb[1:1:1] | passed | 0.32172 seconds |
+./spec/views/user/user_index.html.erb_spec.rb[1:1:2] | passed | 0.23502 seconds |
+./spec/views/user/user_index.html.erb_spec.rb[1:1:3] | passed | 0.07845 seconds |
+./spec/views/user/user_index.html.erb_spec.rb[1:1:4] | passed | 2.04 seconds    |
