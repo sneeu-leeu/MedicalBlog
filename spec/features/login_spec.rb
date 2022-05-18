@@ -17,7 +17,7 @@ RSpec.feature "Logins", type: :feature do
   context 'sign in' do
     scenario 'Try sign in with blank form fields' do
       click_button 'Log in'
-      expect(page).to have_content "Invalid Email or Password"
+      expect(page).to have_content "Invalid Email or password."
     end
 
     scenario 'Try sign in with incorrect data' do
@@ -27,7 +27,7 @@ RSpec.feature "Logins", type: :feature do
       end
 
       click_button 'Log in'
-      expect(page).to have_content "Invalid Email or Password"
+      expect(page).to have_content "Invalid Email or password."
     end
 
     scenario 'Try sign in with correct data' do
