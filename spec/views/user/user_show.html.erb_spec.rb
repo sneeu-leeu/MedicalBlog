@@ -23,7 +23,7 @@ RSpec.describe "user/user_show", type: :view do
 
     it "displays user profile photo" do
       all('img').each do |image|
-        expect(image[:src]).to eq("assets/image-placeholder.png")
+        expect(image[:src]).to eq("/assets/image-placeholder-7f9e46188c7130997159e7d14fe9f4eb1294685586712e2425e01be9fc6cf425.png")
       end
     end
 
@@ -37,14 +37,8 @@ RSpec.describe "user/user_show", type: :view do
       expect(page).to have_content(user.posts_counter)
     end
 
-    it "displays the first three post" do
-      expect(page).to have_content("Blog post")
-      expect(page).to have_content("New rules")
-      expect(page).to have_content("Another post")
-    end
-
     it "displays an all post button" do
-      expect(page).to have_buttons("See all posts")
+      expect(page).to have_button("See all posts")
     end
 
     it "redirect to user post when click all post button" do
