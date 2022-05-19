@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  devise_for :users,
+            controllers: {
+              sessions: 'users/sessions',
+              registrations: 'users/registrations'
+            }
 
   root 'users#index'
 
@@ -16,11 +17,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [] do
-    member do
-      get 'apitoken'
-    end
-  end
 
   resources :users, only: %i[show index] do
     resources :posts, only: %i[show index create new destroy]
