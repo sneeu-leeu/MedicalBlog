@@ -31,14 +31,16 @@ RSpec.feature 'Logins', type: :feature do # rubocop:todo Metrics/BlockLength
     end
 
     scenario 'Try sign in with correct data' do
-      @user = User.create(name: 'piet', surname: 'pompies', email: 'email@email.com', password: '123456')
-      within 'form' do
-        fill_in 'Email', with: 'email@email.com'
-        fill_in 'Password', with: '123456'
-      end
+      @user = User.new(name: 'piet', surname: 'pompies', email: 'email@email.com', password: '123456')
+      @user.skip_confirmation!
+      @user.save
+      fill_in 'Email', with: 'email@email.com'
+      fill_in 'Password', with: '123456'
+
 
       click_button 'Log in'
-      expect(page).to have_current_path(user_session_path)
+      sleep(3)
+      expect(page).to have_current_path root_path
     end
   end
 end
