@@ -37,7 +37,6 @@ RSpec.feature 'Logins', type: :feature do # rubocop:todo Metrics/BlockLength
       fill_in 'Email', with: 'email@email.com'
       fill_in 'Password', with: '123456'
 
-
       click_button 'Log in'
       sleep(3)
       expect(page).to have_current_path root_path

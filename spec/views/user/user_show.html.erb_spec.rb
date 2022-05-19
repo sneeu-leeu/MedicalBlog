@@ -3,18 +3,14 @@ require 'rails_helper'
 RSpec.describe 'user/user_show', type: :view do
   describe 'users show page' do
     before(:each) do
-      # rubocop:todo Layout/LineLength
-      @user1 = User.create(name: 'Daniel', surname: 'Stephan', photo: 'image-link', bio: 'integration spec is a behaviour driven development tool', posts_counter: 0,
-                           # rubocop:enable Layout/LineLength
-                           email: 'huhou@test.com', password: 'huhuhuh45', confirmed_at: Time.now)
-      # rubocop:todo Layout/LineLength
-      @user2 = User.create(name: 'Van', surname: 'Vicker', photo: 'image-link', bio: 'integration spec is a behaviour driven development tool', posts_counter: 0,
-                           # rubocop:enable Layout/LineLength
-                           email: 'test@test.com', password: 'vibesuh45', confirmed_at: Time.now)
+      @user1 = User.create(name: 'Daniel', surname: 'Stephan', bio: 'bio1', posts_counter: 0,
+                           email: 'e@e.com', password: '123456', confirmed_at: Time.now)
+      @user2 = User.create(name: 'Van', surname: 'Vicker', photo: 'image-link', bio: 'boi2', posts_counter: 0,
+                           email: 'test@test.com', password: 'viesuh45', confirmed_at: Time.now)
 
       visit root_path
-      fill_in 'Email', with: 'huhou@test.com'
-      fill_in 'Password', with: 'huhuhuh45'
+      fill_in 'Email', with: 'e@e.com'
+      fill_in 'Password', with: '123456'
 
       click_button 'Log in'
 
@@ -22,7 +18,7 @@ RSpec.describe 'user/user_show', type: :view do
                            likes_counter: 0, user: @user1)
       @post2 = Post.create(title: 'New rules', text: 'hdfiuek just as it appears in the code', comments_counter: 0,
                            likes_counter: 0, user: @user1)
-      @post3 = Post.create(title: 'Annother post', text: 'khduheeuihdfygy jbdfihguir huf', comments_counter: 0,
+      @post3 = Post.create(title: 'Another post', text: 'khduheeuihdfygy jbdfihguir huf', comments_counter: 0,
                            likes_counter: 0, user: @user1)
 
       visit user_path(@user1.id)
@@ -45,12 +41,24 @@ RSpec.describe 'user/user_show', type: :view do
       expect(page).to have_content(user.posts_counter)
     end
 
+    it 'displays the bio' do
+      user = User.first
+      expect(page).to have_content(user.bio)
+    end
+
     it 'displays an all post button' do
       expect(page).to have_button('See all posts')
     end
 
+    it 'displays user first 3 posts' do
+      expect(page).to have_content('Blog post')
+      expect(page).to have_content('New rules')
+      expect(page).to have_content('Another post')
+    end
+
     it 'redirect to user post when click all post button' do
       click_link 'See all posts'
+      expect(page).to have_current_path(user_posts_path(@user1.id))
       expect(page).to have_content('Pagination')
     end
   end
