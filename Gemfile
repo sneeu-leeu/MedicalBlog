@@ -9,7 +9,9 @@ gem 'devise'
 
 gem 'cancancan'
 
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '~> 5.1.3'
+
+gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
