@@ -5,7 +5,7 @@ RSpec.describe 'post/post_index', type: :view do
     before(:each) do
       @user1 = User.create(name: 'Max', photo: 'verstappen.png', bio: 'Max Bio', posts_counter: 0,
                            email: 'maxverstappen@f1.com', password: 'redbull', confirmed_at: Time.now)
-      
+
       @user2 = User.create(name: 'Lewis', photo: 'hamilton.png', bio: 'Lewis Bio', posts_counter: 0,
                            email: 'lewishamilton@f1.com', password: 'mercedes')
 

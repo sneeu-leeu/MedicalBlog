@@ -21,7 +21,9 @@ RSpec.describe 'user/index', type: :view do
 
     it 'displays the user photo' do
       all('img').each do |img|
+        # rubocop:todo Layout/LineLength
         expect(img[:src]).to eq('/assets/image-placeholder-7f9e46188c7130997159e7d14fe9f4eb1294685586712e2425e01be9fc6cf425.png')
+        # rubocop:enable Layout/LineLength
       end
     end
 
