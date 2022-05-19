@@ -4,12 +4,11 @@ RSpec.describe 'user/index', type: :view do
   describe 'user index page' do
     before(:each) do
       # rubocop:todo Naming/VariableNumber
-      @user_1 = User.create(name: 'Max', photo: 'verstappen.png', bio: 'Max Bio', posts_counter: 0,
-                            # rubocop:enable Naming/VariableNumber
+      @user1 = User.create(name: 'Max', photo: 'verstappen.png', bio: 'Max Bio', posts_counter: 0,
                             email: 'maxverstappen@f1.com', password: 'redbull', confirmed_at: Time.now)
 
       # rubocop:todo Naming/VariableNumber
-      @user_2 = User.create(name: 'Lewis', photo: 'hamilton.png', bio: 'Lewis Bio', posts_counter: 0,
+      @user2 = User.create(name: 'Lewis', photo: 'hamilton.png', bio: 'Lewis Bio', posts_counter: 0,
                             # rubocop:enable Naming/VariableNumber
                             email: 'lewishamilton@f1.com', password: 'mercedes')
 
@@ -40,6 +39,7 @@ RSpec.describe 'user/index', type: :view do
     it 'redirects to the user details page when clicking on user' do
       expect(page).to have_content('Number of posts: 0')
       click_on 'Max'
+      expect(page).to have_current_path(user_path(@user1.id))
       expect(page).to have_no_content('Kevin')
     end
   end
