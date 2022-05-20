@@ -1,5 +1,10 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+class ApplicationController < ActionController::API
+  include Response
+  include ExceptionHandler
+  # include ActionController::RequestForgeryProtection
+  # protect_from_forgery with: :exception, unless: -> { request.format.json? }
+  before_action :authenticate_with_token
+  before_action :authenticate_user!
   before_action :update_allowed_parameters, if: :devise_controller?
 
   protected
@@ -10,5 +15,12 @@ class ApplicationController < ActionController::Base
       u.permit(:name, :surname, :email, :password,
                :current_password)
     end
+  end
+
+  def authenticate_with_token
+    return unless params[:apitoken]
+
+    user = User.find_by_api_token(params[:apitoken])
+    sign_in(user)
   end
 end

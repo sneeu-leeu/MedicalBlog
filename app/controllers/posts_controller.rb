@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments)
+    json_response(@posts)
   end
 
   def show
@@ -9,6 +10,7 @@ class PostsController < ApplicationController
     @user = @post.user
     @comments = @post.comments
     @likes = @post.likes
+    json_response(@post)
   end
 
   def new
